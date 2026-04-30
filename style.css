@@ -734,11 +734,28 @@ section {
 }
 
 @media (max-width: 768px) {
+    .site-header {
+        position: absolute;
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
     .header-inner {
+        display: flex;
         flex-direction: column;
-        height: auto;
-        padding: 1rem 0;
-        gap: 1rem;
+        height: auto !important;
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+    
+    .logo {
+        position: static;
+        transform: none;
+    }
+    
+    .logo img {
+        height: 120px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
     }
     
     .main-nav ul {
@@ -747,8 +764,8 @@ section {
         justify-content: center;
     }
     
-    .hero {
-        padding-top: 2rem;
+    .hero-content {
+        padding-top: 4rem;
     }
     
     .hero h1 {
