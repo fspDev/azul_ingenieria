@@ -1081,9 +1081,9 @@ img { max-width: 100%; height: auto; display: block; }
         transform: translate(-50%, -50%);
     }
     .logo img {
-        height: auto;
-        width: 200px;
-        max-width: 60vw;
+        height: 100px;
+        width: auto;
+        max-width: 65vw;
         filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.65));
     }
     .site-header.is-scrolled .logo {
