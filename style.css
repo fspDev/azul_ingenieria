@@ -1043,47 +1043,41 @@ img { max-width: 100%; height: auto; display: block; }
    Responsive — Tablet (≤1024px)
    =========================== */
 @media (max-width: 1024px) {
-    .servicios-grid,
-    .proyectos-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 { font-size: 3.1rem; }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
+    .servicios-grid  { grid-template-columns: repeat(2, 1fr); }
+    .proyectos-grid  { grid-template-columns: repeat(2, 1fr); }
+    .hero h1         { font-size: 3.1rem; }
+    .footer-grid     { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
 
 /* ===========================
    Responsive — Mobile (≤768px)
    =========================== */
 @media (max-width: 768px) {
+
+    /* ── Header ── */
     .header-inner {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         height: 64px;
     }
-
-    .main-nav { display: none; }
-    .header-actions .btn { display: none; }
+    .main-nav                   { display: none; }
+    .header-actions .btn        { display: none; }
     .header-actions .theme-toggle { display: flex; }
-    .menu-toggle { display: flex; }
+    .menu-toggle                { display: flex; }
 
-    /* Logo flota sobre el hero igual que en desktop */
-    .logo-container { display: block; }
+    /* ── Logo flotante ── */
     .logo {
         position: absolute;
-        top: 105px;
+        top: 128px;
         left: 50%;
         transform: translate(-50%, -50%);
     }
     .logo img {
-        height: 100px;
+        height: auto;
         width: auto;
-        max-width: 65vw;
+        max-height: 78px;
+        max-width: 54vw;
         filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.65));
     }
     .site-header.is-scrolled .logo {
@@ -1092,45 +1086,53 @@ img { max-width: 100%; height: auto; display: block; }
         transform: translateY(-50%);
     }
     .site-header.is-scrolled .logo img {
-        height: 38px;
-        width: auto;
+        max-height: 36px;
+        max-width: 160px;
         filter: none;
     }
-
     [data-theme="light"] .site-header.is-scrolled .logo-dark  { display: none; }
     [data-theme="light"] .site-header.is-scrolled .logo-light { display: block; }
 
-    /* Hero */
-    .hero-content { padding-top: 10rem; }
-    .hero h1 { font-size: 2.5rem; letter-spacing: -0.75px; }
-    .hero-features { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-    .hero-divider { display: none; }
+    /* ── Hero ── */
+    .hero-content {
+        padding-top: 13rem;
+    }
+    .hero-label {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+    .hero h1         { font-size: 2.4rem; letter-spacing: -0.75px; }
+    .hero-subtitle   { font-size: 0.95rem; }
+    .hero-actions    { gap: 0.75rem; }
+    .hero-features   { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+    .hero-divider    { display: none; }
 
-    /* Sections */
-    .servicios, .marcas, .propuesta, .proceso, .proyectos { padding: 5rem 0; }
-    .cta-section { padding: 5rem 0; }
-    .section-header { margin-bottom: 2.5rem; }
-    .section-header h2 { font-size: 1.875rem; }
+    /* ── Sections ── */
+    .servicios, .marcas, .propuesta,
+    .proceso, .proyectos, .clientes  { padding: 5rem 0; }
+    .cta-section                     { padding: 5rem 0; }
+    .section-header                  { margin-bottom: 2.5rem; }
+    .section-header h2               { font-size: 1.875rem; }
 
-    .propuesta-grid { grid-template-columns: repeat(2, 1fr); }
-
-    /* Proceso */
-    .timeline-line { display: none; }
-    .timeline-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .step-number { margin-bottom: 1rem; }
-
-    .clientes-grid { grid-template-columns: repeat(3, 1fr); }
-    /* Proyectos — overlay always visible on touch */
+    /* ── Grids ── */
+    .propuesta-grid   { grid-template-columns: repeat(2, 1fr); }
+    .clientes-grid    { grid-template-columns: repeat(3, 1fr); }
     .proyecto-overlay { opacity: 1; }
 
-    /* CTA */
+    /* ── Proceso ── */
+    .timeline-line  { display: none; }
+    .timeline-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .step-number    { margin-bottom: 1rem; }
+
+    /* ── CTA ── */
     .cta-inner h2 { font-size: 2rem; letter-spacing: -0.5px; }
 
-    /* Footer */
-    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-brand p { max-width: 100%; }
+    /* ── Footer ── */
+    .footer-grid      { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-brand p   { max-width: 100%; }
+    .footer-bottom    { flex-direction: column; gap: 0.3rem; }
 
-    /* WhatsApp */
+    /* ── WhatsApp ── */
     .wa-tooltip { display: none; }
 }
 
@@ -1140,18 +1142,31 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 480px) {
     .container { padding: 0 1.25rem; }
 
+    /* ── Logo ── */
+    .logo { top: 112px; }
+    .logo img {
+        max-height: 64px;
+        max-width: 52vw;
+    }
+
+    /* ── Hero ── */
+    .hero-content    { padding-top: 11.5rem; }
+    .hero-label      { font-size: 0.62rem; letter-spacing: 1.5px; }
+    .hero h1         { font-size: 2rem; letter-spacing: -0.5px; }
+    .hero-subtitle   { font-size: 0.925rem; }
+    .hero-features   { gap: 1rem; }
+    .hero-actions    { flex-direction: column; align-items: center; width: 100%; }
+    .hero-actions .btn { width: 100%; max-width: 320px; text-align: center; }
+
+    /* ── Grids ── */
     .servicios-grid,
     .clientes-grid,
     .proyectos-grid,
     .propuesta-grid,
-    .timeline-steps { grid-template-columns: 1fr; }
+    .timeline-steps  { grid-template-columns: 1fr; }
 
-    .hero-actions { flex-direction: column; align-items: center; width: 100%; }
-    .hero-actions .btn { width: 100%; max-width: 300px; }
-    .hero h1 { font-size: 2rem; letter-spacing: -0.5px; }
-    .hero-subtitle { font-size: 0.95rem; }
-    .hero-features { gap: 1rem; }
-
+    /* ── Typography ── */
     .section-header h2 { font-size: 1.625rem; }
-    .cta-inner h2 { font-size: 1.75rem; }
+    .cta-inner h2      { font-size: 1.75rem; }
+    .cta-inner > p     { font-size: 0.9rem; }
 }
