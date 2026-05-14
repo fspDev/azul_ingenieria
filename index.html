@@ -420,10 +420,38 @@
     </a>
 
     <!-- UserWay Accessibility Widget -->
-    <script src="https://cdn.userway.org/widget.js" data-account="uZxTjNxr00"></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="uZxTjNxr00" data-position="1"></script>
     <style>
-        #userwayAccessibilityIcon { left: 1.75rem !important; right: auto !important; bottom: 1.75rem !important; }
+        #userwayAccessibilityIcon,
+        [id*="userway"],
+        .userway-btn {
+            left: 1.75rem !important;
+            right: auto !important;
+            bottom: 1.75rem !important;
+            width: 54px !important;
+            height: 54px !important;
+            border-radius: 50% !important;
+        }
     </style>
+    <script>
+        (function () {
+            function applyPos() {
+                var el = document.getElementById('userwayAccessibilityIcon')
+                      || document.querySelector('[id*="userway"]');
+                if (el) {
+                    el.style.setProperty('left',          '1.75rem', 'important');
+                    el.style.setProperty('right',         'auto',    'important');
+                    el.style.setProperty('bottom',        '1.75rem', 'important');
+                    el.style.setProperty('width',         '54px',    'important');
+                    el.style.setProperty('height',        '54px',    'important');
+                    el.style.setProperty('border-radius', '50%',     'important');
+                }
+            }
+            var obs = new MutationObserver(applyPos);
+            obs.observe(document.body, { childList: true, subtree: true });
+            window.addEventListener('load', applyPos);
+        })();
+    </script>
 
     <script>
         // Header scroll
