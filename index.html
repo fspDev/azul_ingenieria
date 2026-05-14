@@ -420,37 +420,45 @@
     </a>
 
     <!-- UserWay Accessibility Widget -->
-    <script src="https://cdn.userway.org/widget.js" data-account="uZxTjNxr00" data-position="1"></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="uZxTjNxr00"></script>
     <style>
-        #userwayAccessibilityIcon,
-        [id*="userway"],
-        .userway-btn {
-            left: 1.75rem !important;
-            right: auto !important;
-            bottom: 1.75rem !important;
-            width: 54px !important;
-            height: 54px !important;
-            border-radius: 50% !important;
+        /* Mueve el botón original de UserWay fuera de pantalla — lo usamos como disparador invisible */
+        #userwayAccessibilityIcon { position: fixed !important; left: -9999px !important; top: -9999px !important; }
+
+        .a11y-btn {
+            position: fixed;
+            bottom: 1.75rem;
+            left: 1.75rem;
+            width: 54px;
+            height: 54px;
+            background-color: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            z-index: 200;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .a11y-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 99, 235, 0.55);
         }
     </style>
+
+    <button class="a11y-btn" id="a11y-btn" aria-label="Herramientas de accesibilidad">
+        <i class="fa-solid fa-universal-access"></i>
+    </button>
     <script>
-        (function () {
-            function applyPos() {
-                var el = document.getElementById('userwayAccessibilityIcon')
-                      || document.querySelector('[id*="userway"]');
-                if (el) {
-                    el.style.setProperty('left',          '1.75rem', 'important');
-                    el.style.setProperty('right',         'auto',    'important');
-                    el.style.setProperty('bottom',        '1.75rem', 'important');
-                    el.style.setProperty('width',         '54px',    'important');
-                    el.style.setProperty('height',        '54px',    'important');
-                    el.style.setProperty('border-radius', '50%',     'important');
-                }
-            }
-            var obs = new MutationObserver(applyPos);
-            obs.observe(document.body, { childList: true, subtree: true });
-            window.addEventListener('load', applyPos);
-        })();
+        document.getElementById('a11y-btn').addEventListener('click', function () {
+            var uwBtn = document.getElementById('userwayAccessibilityIcon');
+            if (uwBtn) uwBtn.click();
+            else if (window.UserWay && window.UserWay.widgetOpen) window.UserWay.widgetOpen();
+        });
     </script>
 
     <script>
